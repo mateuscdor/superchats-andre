@@ -2,57 +2,54 @@ const superchats = require("superchats");
 require("dotenv").config();
 
 class Funcoes {
+  whatsapp = null;
+
   conectar() {
     new superchats.create("Marketing", {
       license: process.env.SUPER_TOKEN,
     }).then(async (client) => {
-      await client.onMessage(async (message) => {
-        console.log(message.content);
+      this.whatsapp = client;
+
+      await client.onMessage((event) => {
+        console.log(event);
       });
+
+      await client.onAck((event) => {
+        console.log(event);
+      });
+
+      await client.onPresence((event) => {
+        console.log(event);
+      });
+
+      await client.onDelete((event) => {
+        console.log(event);
+      });
+
+      await client.forceStatusOn();
     });
   }
 
-  enviarMensagem() {
-    /*
-    new superchats.create("Marketing", {
-      license:
-        "asjdh-efddff734-sdsdf834-233272",
-    })
-      .then((client) =>
-        client.sendText("5555555555555", "Thanks for using Superchats!!!")
-      )
+  enviarMensagem(message) {
+    if (this.whatsapp) {
+      return this.whatsapp.sendText(process.env.TEL_FONE, message);
+    }
+  }
 
-      .catch((erro) => {
-        console.log(erro);
-      });
-      */
-    /*
-    new superchats.create("Marketing", {
-      license:
-        "asjdh-efddff734-sdsdf834-233272",
-      welcomeScreen: false,
-      logQr: false,
-    }).then(async (client) => {
-      await client.sendText("5555555555555", "Thanks for using Superchats!!!");
-    });
-    */
+  sendmessagebutton() {
+    const buttons = [
+      { buttonId: "id1", buttonText: { displayText: "Button 1" }, type: 1 },
+      { buttonId: "id2", buttonText: { displayText: "Button 2" }, type: 1 },
+    ];
 
-    new superchats.create("Marketing", {
-      license: "asjdh-efddff734-sdsdf834-233272",
-    }).then(async (MarketingClient) => {
-      await MarketingClient.onMessage(async (message) => {
-        if (message.type == "text") {
-          console.log(message);
-        }
-      });
-
-      /*
-        let response = await MarketingClient.sendText(
-          "5555555555555",
-          "Thanks for using Superchats!!!"
-        );
-        */
-    });
+    if (this.whatsapp) {
+      this.whatsapp.sendButtons(
+        process.env.TEL_FONE,
+        "title of message",
+        buttons,
+        "Description optional"
+      );
+    }
   }
 }
 

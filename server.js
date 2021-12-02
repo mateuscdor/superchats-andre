@@ -28,8 +28,13 @@ app.post("/conectar", function (req, res) {
 });
 
 app.post("/enviar", function (req, res) {
-  //console.log(req.query);
-  functions.enviarMensagem();
+  console.log(req.query);
+  functions.enviarMensagem(req.query);
+  res.status(200).json("ok");
+});
+
+app.post("/sendmessagebutton", function (req, res) {
+  functions.sendmessagebutton();
   res.status(200).json("ok");
 });
 
