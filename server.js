@@ -6,6 +6,17 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const superchats = require("superchats");
 const functions = require("./functions/functions");
+const conexao = require("./infraestrutura/conexao");
+const Tabelas = require("./infraestrutura/tabelas");
+
+conexao.connect((erro) => {
+  if (erro) {
+    console.log(erro);
+  } else {
+    console.log("conectado com sucesso");
+    Tabelas.init(conexao);
+  }
+});
 
 const app = express();
 
@@ -34,6 +45,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //novas mudanças inseridas
 app.set("view engine", "ejs");
+
+// Node
 
 app.get("/", function (req, res) {
   res.render("pages/login");
