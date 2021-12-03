@@ -32,7 +32,7 @@ class Funcoes {
 
   enviarMensagem(message) {
     if (this.whatsapp) {
-      return this.whatsapp.sendText(process.env.TEL_FONE, message);
+      return this.whatsapp.sendText(process.env.TEL_FONE, message.message);
     }
   }
 
@@ -49,6 +49,12 @@ class Funcoes {
         buttons,
         "Description optional"
       );
+    }
+  }
+
+  logout() {
+    if (this.whatsapp) {
+      this.whatsapp.logout();
     }
   }
 }
