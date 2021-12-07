@@ -62,13 +62,14 @@ consign().include("controllers").into(app);
 
 //função para pegar as mensagens do banco de dados
 //let messages = [];
-Messages.buscarMessages(process.env.TEL_FONE, process.env.TEL_FONE_CONECTADO);
-let mensagens = Messages.retornarDados();
 
 // server-side
 io.on("connection", (socket) => {
   functions.consoleConectado(socket, io);
 
+  Messages.buscarMessages(process.env.TEL_FONE, process.env.TEL_FONE_CONECTADO);
+  let mensagens = Messages.retornarDados();
+  console.log(mensagens + "mensagens carregadas");
   functions.mensagensAnteriores(mensagens);
 
   socket.on("sendMessage", (data) => {

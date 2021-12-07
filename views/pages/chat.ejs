@@ -29,7 +29,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
-<body class="p-0">
+<body class="p-0" id="corpo">
 
     <div class="container-fluid row p-0 m-0">
         <div class="barra-esquerda vh-100 col-1">
@@ -54,7 +54,7 @@
 
                 <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
                     data-bs-content="Atendimentos em espera">
-                    <button type="button" class="btn btn-primary position-relative pt-3 pb-3 mt-3 mb-3">
+                    <button type="button" class="btn btn-light position-relative pt-3 pb-3 mt-3 mb-3">
                         <i class="fas fa-comment"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             99+
@@ -65,7 +65,7 @@
 
                 <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
                     data-bs-content="Atendimentos na automação">
-                    <button type="button" class="btn btn-primary position-relative pt-3 pb-3 mt-3 mb-3">
+                    <button type="button" class="btn btn-light position-relative pt-3 pb-3 mt-3 mb-3">
                         <i class="fas fa-robot"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             99+
@@ -77,7 +77,7 @@
 
                 <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
                     data-bs-content="Histórico de atendimento">
-                    <button type="button" class="btn btn-primary position-relative pt-3 pb-3 mt-3 mb-3">
+                    <button type="button" class="btn btn-light position-relative pt-3 pb-3 mt-3 mb-3">
                         <i class="fas fa-calendar-alt"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             99+
@@ -133,6 +133,11 @@
                 <div class="mt-4"></div>
 
                 <!-- procurar contatos de atendimento -->
+
+                <div class="conversas-chat">
+
+                </div>
+                <!--
                 <a href='atendimento.php?numeroCliente=$numero[$i]' class='card-link'>
                     <div class='d-flex pop-chat mb-1'>
                         <div class='d-flex justify-content-center align-items-center flex-grow-1'>
@@ -153,6 +158,10 @@
                         </div>
                     </div>
                 </a>
+                -->
+
+                <!-- procurar contatos de atendimento -->
+
 
                 <div class="mb-5"></div>
             </div>
@@ -332,6 +341,9 @@
 
         const socket = io("http://localhost:3000"); //colocar o ip do servidor na porta 3000
 
+
+
+
         function renderMessage(message) {
 
             //fazer o template da mensagem
@@ -403,6 +415,10 @@
         }
 
         socket.on('previousMessages', function (messages) {
+
+
+            const div = $("#mensagens-chat");
+            div.empty();
             for (message of messages) {
                 renderMessage(message);
             }
@@ -458,7 +474,10 @@
 
 
     </script>
+    <script type="module" src="assets/js/conversas.js"></script>
+    <script type="module" src="assets/js/carregarConversas.js"></script>
 
+    <script type="text/javascript" src="assets/js/preventF5.js"></script>
     <script type="text/javascript" src="assets/js/recarregar-div.js"></script>
     <script type="text/javascript" src="assets/js/esconder-botoes.js"></script>
 

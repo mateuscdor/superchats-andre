@@ -102,6 +102,7 @@ class Funcoes {
       //ioAtual.sockets.emit("previousMessages", mensagem[i]);
       console.log(mensagem[i]);
     });
+
     socketAtual.emit("previousMessages", mensagem);
   }
 }
