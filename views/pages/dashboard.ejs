@@ -12,33 +12,61 @@
                     <div class="container-fluid">
 
                         <div class="text-center mt-3">
-                            <h1>Olá, </h1>
-                            <p>Seja bem vindo! Aqui você está no controle<br>
+                            <h1>Olá, {nome do atendente}</h1>
+                            <p>Seja bem vindo! Aqui você está no controle 😉<br>
                                 Use o menu lateral para navegar entre as funcionalidades disponíveis
                             </p>
                         </div>
 
                         <h5>Gerencie os Canais</h5>
-                        <div class="d-flex justify-content-evenly flex-wrap">
+                        <div class="d-flex justify-content-evenly flex-wrap mb-5 mt-2">
 
-                            <div class="d-flex bg-light rounded-3">
-                                <div class="m-1">
-                                    <img src="../dist/img/imgChat/whatsapp-logo-1.png" width="50" height="50">
+                            <div class="d-flex bg-light rounded-3 justify-content-evenly align-items-center p-2 mb-3">
+                                <div class="ms-2 me-2">
+                                    <img src="assets/img/whatsapp-logo-1.png" width="50" height="50">
                                 </div>
 
-                                <div class="m-1">
-
+                                <div class="ms-1 d-flex justify-content-center align-items-center ms-2 me-2">
+                                    Radnet - 9999999<br> (99) 99999 9999
                                 </div>
 
 
-                                <div class="m-1  justify-content-center align-items-center">
-
+                                <div
+                                    class=" d-flex justify-content-center align-items-center bg-success bg-success p-1 rounded ms-2 me-2">
+                                    <i class="far fa-check-circle me-1"></i>conectado
                                 </div>
 
-                                <div class="btn-group btn-group-sm" role="group">
-                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"
+                                <div class="btn-group btn-group-sm ms-2 me-2" role="group">
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-warning dropdown-toggle"
                                         data-bs-toggle="dropdown" aria-expanded="false">
-                                        menu
+                                        <i class="fas fa-bars"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                                        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="d-flex bg-light rounded-3 justify-content-evenly align-items-center p-2 mb-3">
+                                <div class="ms-2 me-2">
+                                    <img src="assets/img/whatsapp-logo-1.png" width="50" height="50">
+                                </div>
+
+                                <div class="ms-1 d-flex justify-content-center align-items-center ms-2 me-2">
+                                    Radnet - 9999999<br> (99) 99999 9999
+                                </div>
+
+
+                                <div
+                                    class=" d-flex justify-content-center align-items-center bg-success bg-success p-1 rounded ms-2 me-2">
+                                    <i class="far fa-check-circle me-1"></i> conectado
+                                </div>
+
+                                <div class="btn-group btn-group-sm ms-2 me-2" role="group">
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-warning dropdown-toggle"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-bars"></i>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                         <li><a class="dropdown-item" href="#">Dropdown link</a></li>
@@ -49,142 +77,6 @@
 
 
                         </div>
-
-                        <div class="d-flex justify-content-center flex-wrap ">
-
-                            <div class="d-flex justify-content-center col-xl-4 ">
-                                <div class=" text-center">
-                                    <img src="../dist/img/imgChat/grafico-de-barras-ilustracao.jpg" width="360"
-                                        height="360">
-                                </div>
-                            </div>
-
-                            <div class="d-flex text-center flex-wrap justify-content-center col-xl-8">
-                                <div class="row  justify-content-center">
-                                    <div class="bg-success p-1 m-1 col-3">
-                                        <div class="bg-danger">
-                                            <h3>000</h3>
-                                        </div>
-                                        <div class="">
-                                            Atendimentos em andamento
-                                        </div>
-                                    </div>
-
-                                    <div class="bg-success p-1 m-1 col-3">
-                                        <div class="bg-danger">
-                                            <h3>000</h3>
-                                        </div>
-                                        <div class="">
-                                            Atendimentos em espera
-                                        </div>
-                                    </div>
-
-                                    <div class="bg-success p-1 m-1 col-3">
-                                        <div class="bg-danger">
-                                            <h3>000</h3>
-                                        </div>
-                                        <div class="">
-                                            Atendimentos na automação
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row  justify-content-center">
-
-                                    <div class="bg-success p-1 m-1 col-3">
-                                        <div class="bg-danger">
-                                            <h3>000</h3>
-                                        </div>
-                                        <div class="">
-                                            Encerrados na automação
-                                        </div>
-                                    </div>
-
-                                    <div class="bg-success p-1 m-1 col-3">
-                                        <div class="bg-danger">
-                                            <h3>000</h3>
-                                        </div>
-                                        <div class="">
-                                            Encerrados manualmente hoje
-                                        </div>
-                                    </div>
-
-                                    <div class="bg-success p-1 m-1 col-3">
-                                        <div class="bg-danger">
-                                            <h3>000</h3>
-                                        </div>
-                                        <div class="">
-                                            Encerrados por inatividade
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                        <h5>Informações dos Canais <sub>*Dados coletados a partir de {}</sub></h5>
-
-                        <div class="d-flex justify-content-center">
-
-                            <div class="d-flex text-center justify-content-center">
-                                <div class="bg-success p-1 m-3">
-                                    <div class="bg-danger">
-                                        <h3>000</h3>
-                                    </div>
-                                    <div class="">
-                                        Canais em 2º Plano Hoje
-                                    </div>
-                                    <div class="">
-                                        Clique para mais
-                                    </div>
-                                </div>
-
-                                <div class="bg-success p-1 m-3">
-                                    <div class="bg-danger">
-                                        <h3>000</h3>
-                                    </div>
-                                    <div class="">
-                                        Canais em 2º Plano Hoje
-                                    </div>
-                                    <div class="">
-                                        Clique para mais
-                                    </div>
-                                </div>
-
-                                <div class="bg-success p-1 m-3">
-                                    <div class="bg-danger">
-                                        <h3>000</h3>
-                                    </div>
-                                    <div class="">
-                                        Canais offiline hoje
-                                    </div>
-                                    <div class="">
-                                        Clique para mais
-                                    </div>
-                                </div>
-
-
-
-                                <div class="bg-success p-1 m-3">
-                                    <div class="bg-danger">
-                                        <h3>000</h3>
-                                    </div>
-                                    <div class="">
-                                        Canais offiline em 7 dias
-                                    </div>
-                                    <div class="">
-                                        Clique para mais
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-
-
-
                     </div><!-- /.container-fluid -->
                 </div>
                 <!-- /.content-header -->
