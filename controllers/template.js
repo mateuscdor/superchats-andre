@@ -1,4 +1,5 @@
 const functions = require("../functions/functions");
+require("dotenv").config();
 
 module.exports = (app) => {
   app.get("/logout", function (req, res) {
@@ -29,7 +30,12 @@ module.exports = (app) => {
     let password = req.body.password;
 
     if (email.length && password.length) {
-      if (email == "andre@andre" && password == "123") {
+      if (
+        (email == process.env.LOGIN_ANDRE &&
+          password == process.env.SENHA_ANDRE) ||
+        (email == process.env.LOGIN_GILSON &&
+          password == process.env.SENHA_GILSON)
+      ) {
         res.redirect("/home");
       } else {
         res.redirect("/?erro=" + "nao foi possivel altenticar");
