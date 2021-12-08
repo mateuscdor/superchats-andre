@@ -3,6 +3,7 @@ class Tabelas {
     this.conexao = conexao;
 
     this.criarChat();
+    this.criarAtendente();
   }
 
   criarChat() {
@@ -14,6 +15,19 @@ class Tabelas {
         console.log(erro);
       } else {
         console.log("Tabela chat criada com sucesso");
+      }
+    });
+  }
+
+  criarAtendente() {
+    const sql =
+      "CREATE TABLE IF NOT EXISTS atendentes (id int NOT NULL AUTO_INCREMENT, nome varchar(255),sobrenome varchar(255),email varchar(255),senha varchar(255), nivel_acesso varchar(255), status varchar(255), PRIMARY KEY(id))";
+
+    this.conexao.query(sql, (erro) => {
+      if (erro) {
+        console.log(erro);
+      } else {
+        console.log("Tabela atendentes criada com sucesso");
       }
     });
   }

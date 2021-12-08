@@ -2,11 +2,16 @@ const Chat = require("../models/chat");
 const functions = require("../functions/functions");
 const Messages = require("../models/messages");
 const { retornarConversas } = require("../models/messages");
+const { Atendente } = require("../models/atendente");
 require("dotenv").config();
 
 module.exports = (app) => {
   app.get("/chat", function (req, res) {
-    res.render("pages/chat");
+    idUsuario = process.env.ID_USUARIO;
+    Atendente.buscarAtendente(idUsuario);
+    let atendente = atendenteAtendente.retornarAtendente();
+
+    res.render("pages/chat", { teste: idUsuario });
   });
 
   app.post("/enviar", function (req, res) {
@@ -37,5 +42,11 @@ module.exports = (app) => {
     Messages.buscarConversasNumero(process.env.TEL_FONE_CONECTADO);
     let conversas = Messages.retornarConversas();
     res.status(200).json(conversas);
+  });
+
+  app.post("/carregarAtendente", function (req, res) {
+    Atendente.buscarAtendente(req.query);
+    let atendente = atendenteAtendente.retornarAtendente();
+    res.status(200).json(atendente);
   });
 };
