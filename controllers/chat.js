@@ -7,11 +7,24 @@ require("dotenv").config();
 
 module.exports = (app) => {
   app.get("/chat", function (req, res) {
-    idUsuario = process.env.ID_USUARIO;
-    Atendente.buscarAtendente(idUsuario);
-    let atendente = atendenteAtendente.retornarAtendente();
+    let numeroAtendente = process.env.NUMERO_ATENDENTE;
+    let canal = process.env.CANAL;
+    let protocolo = process.env.PROTOCOLO;
+    let conectado = process.env.TEL_FONE_CONECTADO;
+    let destino = process.env.TEL_FONE;
+    let ip_servidor = process.env.IP_SERVIDOR;
 
-    res.render("pages/chat", { teste: idUsuario });
+    //Atendente.buscarAtendente(idUsuario);
+    //let atendente = atendenteAtendente.retornarAtendente();
+
+    res.render("pages/chat/index", {
+      canal: canal,
+      protocolo: protocolo,
+      numeroAtendente: numeroAtendente,
+      conectado: conectado,
+      destino: destino,
+      ip_servidor: ip_servidor,
+    });
   });
 
   app.post("/enviar", function (req, res) {

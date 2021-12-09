@@ -31,7 +31,7 @@ $(document).ready(function () {
           }
         });
 
-        xhr.open("POST", `http://localhost:3000/recuperarMensagens`);
+        xhr.open("POST", `${ip_servidor}/recuperarMensagens`);
 
         xhr.send();
 

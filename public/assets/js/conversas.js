@@ -5,7 +5,7 @@ export default class Conversas {
     let resposta;
 
     var settings = {
-      url: "http://localhost:3000/carregarConversas",
+      url: `${ip_servidor}/carregarConversas`,
       method: "POST",
       timeout: 0,
       async: false,

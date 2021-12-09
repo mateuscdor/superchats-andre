@@ -1,0 +1,165 @@
+<!-- inicio do chat -->
+
+<div class="vh-100 col p-0 m-0" style="position: relative">
+    <div class="d-flex justify-content-between bg-light">
+
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="">
+                <img src="assets/img/transferir.png" class="img-chat m-2">
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <div class="mt-3 mb-1">
+                    <p>(61) <%= numeroAtendente %> <br>
+                            (61) <%= numeroAtendente %> - Offline</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="mt-3 mb-1">
+
+                <p>
+                    Canal : <%= canal %><br>
+                        Protocolo: <%= protocolo %>
+                </p>
+            </div>
+            <div class="d-flex flex-wrap ms-3 me-3">
+                <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                    data-bs-placement="bottom" data-bs-content="Mensagens Internas">
+                    <i class="fas fa-paper-plane  ms-2 me-2"></i>
+                </span>
+                <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                    data-bs-placement="bottom" data-bs-content="Transferir Atendimento">
+                    <i class="fas fa-exchange-alt  ms-2 me-2"></i>
+                </span>
+
+                <div class="dropdown">
+                    <i class="fas fa-ellipsis-v dropdown-toggle ms-2 me-2" data-bs-toggle="dropdown"
+                        id="dropdownMenuButton1" aria-expanded="false"></i>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Perfil do Cliente</a></li>
+                        <li><a class="dropdown-item" href="#">Imprimir Atendimento</a></li>
+                        <li><a class="dropdown-item" href="#">Atendimentos Anteriores</a></li>
+                        <li><a class="dropdown-item" href="#">Atendimentos Anteriores</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                            <span class="ms-3 mt-3">Encerrar Atendimentos</span>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Com Mensagem</a></li>
+                        <li><a class="dropdown-item" href="#">Sem Mensagem</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="back-chat vh-100" style="overflow-y: scroll" id="back-chat">
+
+        <div class=" mt-4"></div>
+
+
+        <div class="mensagens-chat" id="mensagens-chat">
+
+        </div>
+
+
+        <div style="height: 170px;"></div>
+
+        <div class=""
+            style=" width: 100%; height: 80px; background-color: #000000; position: absolute; bottom: 0; left: 0;">
+
+            <div class="d-flex justify-content-center align-items-center bg-light " style="height:80px;">
+                <div class=" row input-group input-group-sm">
+
+
+
+                    <form id="chat">
+
+                        <div class="d-flex justify-content-between">
+                            <div class="col-1 d-flex flex-wrap  justify-content-around align-items-center">
+                                <div class="dropdown">
+
+                                    <i class="fas fa-paperclip   dropdown-toggle ms-2 me-2" data-bs-toggle="dropdown"
+                                        id="dropdownMenuButton1" aria-expanded="false"></i>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="#">Contato</a></li>
+                                        <li><a class="dropdown-item" href="#">Documento</a></li>
+                                        <li><a class="dropdown-item" href="#">Imagem</a></li>
+                                    </ul>
+                                </div>
+
+                                <span class="d-inline-block" tabindex="0" data-bs-toggle="popover"
+                                    data-bs-trigger="hover focus" data-bs-placement="top"
+                                    data-bs-content="Clique selecionar uma mensagem modelo">
+                                    <i class="fas fa-bolt  ms-2 me-2"></i>
+                                </span>
+                            </div>
+
+                            <!--  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Encontre o atendimento em andamento"> -->
+
+                            <div class="col-9 d-flex flex-column" style=" height: 20px;">
+                                <input type="text" name="texto" id="buscar">
+
+                                <!--  <textarea id="textarea" name="texto"></textarea> -->
+                            </div>
+
+                            <div class="col-2 d-flex flex-wrap justify-content-around">
+                                <span class="d-inline-block" tabindex="0" data-bs-toggle="popover"
+                                    data-bs-trigger="hover focus" data-bs-placement="top"
+                                    data-bs-content="Gravar áudio">
+                                    <i class="fas fa-microphone ms-2 me-2"
+                                        style="background-color: silver; padding:8px;border-radius: 50px;"></i>
+                                </span>
+
+                                <button type="submit"><i class="fas fa-paper-plane text-light" id="enviar"
+                                        style="background-color: #1C98DA; padding:8px;border-radius: 50px;"></i></button>
+                            </div>
+
+                        </div>
+
+
+                    </form>
+
+                    <div class="fechar" style="position: absolute;bottom: 68px; right:9px; ">
+                        <div class=""
+                            style="position:relative;left:0; margin-bottom: -30px;margin-right: 10px; text-align:right">
+                            <i class="fas fa-times"></i>
+                        </div>
+
+                        <div class="" style="margin:20px;background-color:aqua;padding:20px;">
+                            teste do responder<br>
+                            teste do responder<br>
+                            teste do responder<br>
+                            teste do responder<br>
+                            teste do responder<br>
+                            teste do responder<br>
+                            teste do responder<br>
+                            teste do responder<br>
+                            teste do responder<br>
+                            teste do responder<br>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- fim do chat -->
+
+
+
+</div>
