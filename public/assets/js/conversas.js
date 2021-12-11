@@ -1,7 +1,9 @@
+import RetornarNumero from "./retornarNumero.js";
+
 export default class Conversas {
   conversas = null;
 
-  procurarConversas() {
+  procurarConversas(ip_servidor) {
     let resposta;
 
     var settings = {
@@ -13,13 +15,10 @@ export default class Conversas {
 
     $.ajax(settings).done(function (response) {
       resposta = response;
-      //Conversas.conversas = response;
     });
 
     this.conversas = resposta;
   }
-
-  ultimaConversaFunction() {}
 
   renderConversas(conversas) {
     let ultimaConversa = [];
@@ -48,8 +47,8 @@ export default class Conversas {
 
     ultimaConversa.forEach((element) => {
       let templateConversa = `
-      <a href='atendimento.php?numeroCliente=$numero[$i]' class='card-link'>
-      <div class='d-flex pop-chat mb-1'>
+     
+      <div class='d-flex pop-chat mb-1 clientesConversa' id="${element.from_number}">
           <div class='d-flex justify-content-center align-items-center flex-grow-1'>
               <img src='assets/img/transferir.png' class='img-chat m-2'>
           </div>
@@ -67,40 +66,30 @@ export default class Conversas {
     
           </div>
       </div>
-    </a>
+
       `;
 
       $(".conversas-chat").append(templateConversa);
     });
+  }
 
-    /*
-    conversas.forEach((element) => {
-      let templateConversa = `
-      <a href='atendimento.php?numeroCliente=$numero[$i]' class='card-link'>
-      <div class='d-flex pop-chat mb-1'>
-          <div class='d-flex justify-content-center align-items-center flex-grow-1'>
-              <img src='assets/img/transferir.png' class='img-chat m-2'>
-          </div>
-    
-          <div class='w-100 m-2'>
-              <div class='d-flex justify-content-between data-hora'>
-                  <p> ${element.from_number} </p>
-                  <p> ${element.created_at} </p>
-              </div>
-    
-              <div class='mensagem'>
-    
-                  <p> ${element.content} </p>
-              </div>
-    
-          </div>
-      </div>
-    </a>
-      `;
+  adicionarEventoConversa(ip_servidor, retornar) {
+    document.querySelectorAll(".clientesConversa").forEach((item) => {
+      item.addEventListener("click", function () {
+        retornar.pegarNumero(item.id);
+        var settings = {
+          url: `${ip_servidor}/recuperarMensagens?toNumber=${item.id}`,
+          method: "POST",
+          timeout: 0,
+        };
 
-      $(".conversas-chat").append(templateConversa);
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+        });
+
+        $("#buscar").prop("disabled", false);
+      });
     });
-    */
   }
 
   retornarValor() {

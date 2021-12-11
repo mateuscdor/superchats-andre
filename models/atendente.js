@@ -6,7 +6,7 @@ class Atendente {
   buscarAtendente(idAtendente) {
     const sql = `SELECT * FROM atendentes WHERE id = ${idAtendente}`;
 
-    conexao.query(sql, mensagem, (erro, resultados) => {
+    conexao.query(sql, (erro, resultados) => {
       if (erro) {
         console.log(erro);
       }

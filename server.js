@@ -4,12 +4,9 @@ const { createServer } = require("http");
 const { Server } = require("socket.io");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const superchats = require("superchats");
 const functions = require("./functions/functions");
 const conexao = require("./infraestrutura/conexao");
 const Tabelas = require("./infraestrutura/tabelas");
-//const Chat = require("../models/chat");
-const Messages = require("./models/messages");
 const consign = require("consign");
 
 const app = express();
@@ -18,7 +15,7 @@ conexao.connect((erro) => {
   if (erro) {
     console.log(erro);
   } else {
-    console.log("conectado com sucesso");
+    console.log("Banco de dados conectado com sucesso");
     Tabelas.init(conexao);
   }
 });
@@ -60,17 +57,9 @@ app.set("view engine", "ejs");
 
 consign().include("controllers").into(app);
 
-//função para pegar as mensagens do banco de dados
-//let messages = [];
-
 // server-side
 io.on("connection", (socket) => {
   functions.consoleConectado(socket, io);
-
-  Messages.buscarMessages(process.env.TEL_FONE, process.env.TEL_FONE_CONECTADO);
-  let mensagens = Messages.retornarDados();
-  console.log(mensagens + "mensagens carregadas");
-  functions.mensagensAnteriores(mensagens);
 
   socket.on("sendMessage", (data) => {
     console.log(data);

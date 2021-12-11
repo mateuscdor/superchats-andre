@@ -10,6 +10,7 @@ class Funcoes {
   io = null;
 
   conectar() {
+    console.log("functions conectar");
     new superchats.create("Marketing", {
       license: process.env.SUPER_TOKEN,
     }).then(async (client) => {
@@ -29,10 +30,11 @@ class Funcoes {
             .format("YYYY-MM-DD HH:mm:ss"),
         };
 
-        Chat.mensagem(mensagem);
-        this.io.sockets.emit("wppMessage", {
-          author: event.from,
-          message: event.content,
+        Chat.mensagem(mensagem, (emitirSocket) => {
+          this.io.sockets.emit("wppMessage", {
+            author: event.from,
+            message: event.content,
+          });
         });
 
         console.log(mensagem);
@@ -55,12 +57,15 @@ class Funcoes {
   }
 
   enviarMensagem(message) {
+    console.log("functions enviarMensagem");
     if (this.whatsapp) {
-      return this.whatsapp.sendText(process.env.TEL_FONE, message.content);
+      return this.whatsapp.sendText(message.to_number, message.content);
     }
   }
 
+  /*
   sendmessagebutton() {
+    console.log("functions sendmessagebutton");
     const buttons = [
       { buttonId: "id1", buttonText: { displayText: "Button 1" }, type: 1 },
       { buttonId: "id2", buttonText: { displayText: "Button 2" }, type: 1 },
@@ -75,23 +80,25 @@ class Funcoes {
       );
     }
   }
-
+*/
   logout() {
+    console.log("functions logout");
     if (this.whatsapp) {
       this.whatsapp.logout();
     }
   }
 
   consoleConectado(socket, io) {
+    console.log("functions consoleConectado");
     this.socket = socket;
     this.io = io;
     console.log(`Socket contectado: ${socket.id}`);
   }
 
   mensagensAnteriores(messages) {
+    console.log("functions mensagensAnteriores");
     let socketAtual = this.socket;
     let mensagem = [];
-    let ioAtual = this.io;
 
     messages.forEach(function (message, i) {
       mensagem.push({
@@ -99,7 +106,6 @@ class Funcoes {
         message: message.content,
       });
 
-      //ioAtual.sockets.emit("previousMessages", mensagem[i]);
       console.log(mensagem[i]);
     });
 

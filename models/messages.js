@@ -12,7 +12,7 @@ class Messages {
         console.log(erro + "deu erro");
       }
       var mensagens = JSON.parse(JSON.stringify(resultados));
-
+      console.log(mensagens);
       this.conversas = mensagens;
     });
   }
@@ -27,12 +27,6 @@ class Messages {
       var mensagens = JSON.parse(JSON.stringify(resultados));
 
       this.messages = mensagens;
-
-      /*
-      mensagens.forEach((element) => {
-        this.messages.push(element);
-      });
-      */
     });
   }
 

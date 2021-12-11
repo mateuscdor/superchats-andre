@@ -1,7 +1,7 @@
 const conexao = require("../infraestrutura/conexao");
 
 class Chat {
-  mensagem(mensagem) {
+  mensagem(mensagem, emitirSocket) {
     const sql = "INSERT INTO chat SET ?";
 
     conexao.query(sql, mensagem, (erro, resultados) => {
