@@ -18,6 +18,7 @@ module.exports = (app) => {
 
     Atendente.buscarAtendente(process.env.ID_USUARIO);
     let atendente = Atendente.retornarAtendente();
+    console.log(atendente);
 
     // passando as informações para o front
     // rederizando o front pelo ejs
@@ -50,21 +51,26 @@ module.exports = (app) => {
 */
 
   // Faz a busca das mensagens no chat
-  app.post("/recuperarMensagens", function (req, res) {
+  app.post("/recuperarMensagens", async function (req, res) {
     console.log("api /recuperarMensagens");
-    Messages.buscarMessages(req.query.toNumber, process.env.TEL_FONE_CONECTADO);
-    let mensagens = Messages.retornarDados();
+    let mensagens = await Messages.buscarMessages(
+      req.query.toNumber,
+      process.env.TEL_FONE_CONECTADO
+    );
+    //let mensagens = Messages.retornarDados();
 
     // faz o envio das mensagens para o front
-    functions.mensagensAnteriores(mensagens);
+    await functions.mensagensAnteriores(mensagens);
     res.status(200).json(mensagens);
   });
 
   //
-  app.post("/carregarConversas", function (req, res) {
+  app.post("/carregarConversas", async function (req, res) {
     console.log("api /carregarConversas");
-    Messages.buscarConversasNumero(process.env.TEL_FONE_CONECTADO);
-    let conversas = Messages.retornarConversas();
+    let conversas = await Messages.buscarConversasNumero(
+      process.env.TEL_FONE_CONECTADO
+    );
+    //let conversas = Messages.retornarConversas();
     res.status(200).json(conversas);
   });
 

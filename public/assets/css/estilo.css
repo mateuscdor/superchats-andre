@@ -87,12 +87,3 @@ html {
 .card-link:hover {
   color: turquoise;
 }
-
-.card-link a:link,
-a:visited {
-  color: white;
-}
-
-a:link {
-  color: white;
-}

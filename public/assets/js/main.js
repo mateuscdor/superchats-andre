@@ -4,6 +4,7 @@ import RetornarNumero from "./retornarNumero.js";
 import { enviarMensagem } from "./enviarMensagem.js";
 import { preventF5 } from "./preventF5.js";
 import { recarregarDiv } from "./recarregar-div.js";
+import { copiarMensagem } from "./copiarMensagem.js";
 
 let socket = new Socket();
 let retornar = new RetornarNumero();

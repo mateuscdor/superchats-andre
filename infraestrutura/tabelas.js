@@ -4,6 +4,7 @@ class Tabelas {
 
     this.criarChat();
     this.criarAtendente();
+    this.criarProtocolo();
   }
 
   criarChat() {
@@ -28,6 +29,25 @@ class Tabelas {
         console.log(erro);
       } else {
         console.log("Tabela atendentes criada com sucesso");
+      }
+    });
+  }
+
+  criarProtocolo() {
+    const sql = `CREATE TABLE IF NOT EXISTS protocolo (
+      id int NOT NULL AUTO_INCREMENT,
+      nome varchar(255),
+      contato varchar(255),
+      email varchar(255),
+      empresa varchar(255),
+      protocolo varchar(255),
+      PRIMARY KEY(id))`;
+
+    this.conexao.query(sql, (erro) => {
+      if (erro) {
+        console.log(erro);
+      } else {
+        console.log("Tabela protocolo criada com sucesso");
       }
     });
   }

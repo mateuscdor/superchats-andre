@@ -14,9 +14,9 @@ export function renderMessage(message) {
                         data-bs-toggle='dropdown' id='dropdownMenuButton1' aria-expanded='false'></i>
 
                     <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
-                        <li><i class='fas fa-copy ms-3'></i> Copiar</li>
-                        <li><i class='fas fa-star ms-3'></i> Favoritar</li>
-                        <li><i class='fas fa-reply ms-3'></i> Responder</li>
+                        <li class="copiar_message"><i class='fas fa-copy ms-3'></i> Copiar</li>
+                        <li class="favoritar_message"><i class='fas fa-star ms-3'></i> Favoritar</li>
+                        <li class="responser_message"><i class='fas fa-reply ms-3'></i> Responder</li>
                     </ul>
                 </div>
             </div>
@@ -42,9 +42,9 @@ export function renderMessage(message) {
                                 data-bs-toggle='dropdown' id='dropdownMenuButton1' aria-expanded='false'></i>
 
                             <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
-                                <li><i class='fas fa-copy ms-3'></i> Copiar</li>
-                                <li><i class='fas fa-star ms-3'></i> Favoritar</li>
-                                <li><i class='fas fa-reply ms-3'></i> Responder</li>
+                                <li class="copiar_message"><i class='fas fa-copy ms-3'></i> Copiar</li>
+                                <li class="favoritar_message"><i class='fas fa-star ms-3'></i> Favoritar</li>
+                                <li class="responser_message"><i class='fas fa-reply ms-3'></i> Responder</li>
                             </ul>
                         </div>
                     </div>

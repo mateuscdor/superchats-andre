@@ -82,9 +82,8 @@
                     <form id="chat">
 
                         <div class="d-flex justify-content-between">
-                            <div class="col-1 d-flex flex-wrap  justify-content-around align-items-center">
+                            <div class="col-1 d-flex flex-wrap  justify-content-evenly align-items-center">
                                 <div class="dropdown">
-
                                     <i class="fas fa-paperclip   dropdown-toggle ms-2 me-2" data-bs-toggle="dropdown"
                                         id="dropdownMenuButton1" aria-expanded="false"></i>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -103,22 +102,26 @@
 
                             <!--  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Encontre o atendimento em andamento"> -->
 
-                            <div class="col-9 d-flex flex-column" style=" height: 20px;">
-                                <input type="text" name="texto" id="buscar" disabled>
+                            <div class="col-10 d-flex flex-column" style=" height: 20px;">
+                                <input type="text" name="texto" id="buscar" disabled placeholder="Digite sua mensagem">
 
                                 <!--  <textarea id="textarea" name="texto"></textarea> -->
                             </div>
 
-                            <div class="col-2 d-flex flex-wrap justify-content-around">
+                            <div class="col-1 d-flex flex-wrap justify-content-around">
+                                <!--
                                 <span class="d-inline-block" tabindex="0" data-bs-toggle="popover"
                                     data-bs-trigger="hover focus" data-bs-placement="top"
                                     data-bs-content="Gravar áudio">
                                     <i class="fas fa-microphone ms-2 me-2"
                                         style="background-color: silver; padding:8px;border-radius: 50px;"></i>
                                 </span>
+                                -->
 
-                                <button type="submit"><i class="fas fa-paper-plane text-light" id="enviar"
-                                        style="background-color: #1C98DA; padding:8px;border-radius: 50px;"></i></button>
+                                <button type="submit" class="btn btn-primary pb-0 pt-0 "><i
+                                        class="fas fa-paper-plane fa-sm text-light" id="enviar"
+                                        style="padding:8px;border-radius: 50px;"></i></button>
+
                             </div>
 
                         </div>
@@ -144,18 +147,11 @@
                             teste do responder<br>
                             teste do responder<br>
                         </div>
-
                     </div>
-
-
-
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 <!-- fim do chat -->

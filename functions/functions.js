@@ -3,6 +3,7 @@ require("dotenv").config();
 const Chat = require("../models/chat");
 const moment = require("moment");
 const { mensagem } = require("../models/chat");
+const Protocolo = require("../models/protocolos");
 
 class Funcoes {
   whatsapp = null;
@@ -30,11 +31,14 @@ class Funcoes {
             .format("YYYY-MM-DD HH:mm:ss"),
         };
 
-        Chat.mensagem(mensagem, (emitirSocket) => {
-          this.io.sockets.emit("wppMessage", {
-            author: event.from,
-            message: event.content,
-          });
+        Chat.mensagem(mensagem);
+
+        //let protocolo = Protocolo.buscarProtocolos(this.whatsapp);
+        //console.log(protocolo);
+
+        this.io.sockets.emit("wppMessage", {
+          author: event.from,
+          message: event.content,
         });
 
         console.log(mensagem);
@@ -96,20 +100,28 @@ class Funcoes {
   }
 
   mensagensAnteriores(messages) {
-    console.log("functions mensagensAnteriores");
-    let socketAtual = this.socket;
-    let mensagem = [];
+    return new Promise((resolve, reject) => {
+      try {
+        console.log("functions mensagensAnteriores");
+        let socketAtual = this.socket;
+        let mensagem = [];
 
-    messages.forEach(function (message, i) {
-      mensagem.push({
-        author: message.from_number,
-        message: message.content,
-      });
+        messages.forEach(function (message, i) {
+          mensagem.push({
+            author: message.from_number,
+            message: message.content,
+          });
 
-      console.log(mensagem[i]);
+          console.log(mensagem[i]);
+        });
+
+        resolve(resolve);
+
+        socketAtual.emit("previousMessages", mensagem);
+      } catch (error) {
+        reject(error);
+      }
     });
-
-    socketAtual.emit("previousMessages", mensagem);
   }
 }
 

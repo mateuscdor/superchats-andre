@@ -1,4 +1,5 @@
 import { renderMessage } from "./renderMensagens.js";
+import RetornarNumero from "./retornarNumero.js";
 
 export default class Socket {
   socket = null;
@@ -33,6 +34,19 @@ export default class Socket {
           }
         });
       });
+
+      document.querySelectorAll(".copiar_message").forEach((item) => {
+        item.addEventListener("click", function () {
+          let copy =
+            this.parentNode.parentNode.parentNode.parentNode.children[0];
+
+          var $temp = $("<input>");
+          $("body").append($temp);
+          $temp.val($(copy).text().trim()).select();
+          document.execCommand("copy");
+          $temp.remove();
+        });
+      });
     });
 
     this.socket.on("receivedMessage", function (message) {
@@ -40,6 +54,11 @@ export default class Socket {
     });
 
     this.socket.on("wppMessage", function (message) {
+      let numeroClicado = RetornarNumero.retornarNumero();
+
+      console.log(numeroClicado);
+
+      console.log("socket / wppmessage");
       renderMessage(message);
 
       const div = $("#conversas-chat");
