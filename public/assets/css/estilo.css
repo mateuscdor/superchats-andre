@@ -77,7 +77,9 @@ html {
 }
 
 .fechar {
-  visibility: hidden;
+}
+.texto-copiar {
+  border-radius: 10px;
 }
 
 .card-link {
@@ -86,4 +88,7 @@ html {
 
 .card-link:hover {
   color: turquoise;
+}
+.link-bg:hover {
+  background-color: rgb(230, 230, 230);
 }

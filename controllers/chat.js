@@ -2,6 +2,7 @@ const Chat = require("../models/chat");
 const functions = require("../functions/functions");
 const Messages = require("../models/messages");
 const Atendente = require("../models/atendente");
+const Notificacao = require("../models/notificacoes");
 require("dotenv").config();
 
 module.exports = (app) => {
@@ -81,4 +82,20 @@ module.exports = (app) => {
     res.status(200).json(atendente);
   });
   */
+
+  app.post("/inserirNotificacoes", function (req, res) {
+    Notificacao.inserirNotificacao(req.query);
+    console.log(req.query);
+    res.status(200).json(req.query);
+  });
+
+  app.post("/removerNotificacao", async function (req, res) {
+    Notificacao.removerNotificacoes(req.query.fone);
+    res.status(200).json();
+  });
+
+  app.post("/contarNotificacoes", async function (req, res) {
+    let mensagens = await Notificacao.contarNotificacoes();
+    res.status(200).json(mensagens);
+  });
 };

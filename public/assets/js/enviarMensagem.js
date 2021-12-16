@@ -44,5 +44,9 @@ export function enviarMensagem(
 
     xhr.send();
     document.getElementById("buscar").value = "";
+
+    let audio = new Audio("assets/audios/envio.mp3");
+
+    audio.play();
   });
 }

@@ -60,11 +60,13 @@ export default class Conversas {
               </div>
     
               <div class='mensagem'>
-    
                   <p> ${element.content} </p>
               </div>
+
     
           </div>
+          
+       
       </div>
 
       `;
@@ -88,6 +90,11 @@ export default class Conversas {
         });
 
         $("#buscar").prop("disabled", false);
+
+        item.children[2].style.visibility = "hidden";
+        let valorDiv = item.children[2].children[0].children[0].textContent;
+        let resultado = parseInt(valorDiv) + 1;
+        item.children[2].children[0].children[0].innerHTML = "";
       });
     });
   }
